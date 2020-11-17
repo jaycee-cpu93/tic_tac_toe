@@ -18,72 +18,40 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+
+        <ul class="row" id="nextTracker">
+            <!-- <p>The Current player is <strong id="player">O</strong></p> -->
+        </ul>
+        
+        <div class="row" id="0">
+            <div class="col-4 vertical-line">
+                <button id="btn-0" value="0"></button>
+            </div>
             <div class="col-4 vertical-line"><button id="btn-1" value="1"></button></div>
             <div class="col-4 vertical-line"><button id="btn-2" value="2"></button></div>
-            <div class="col-4 vertical-line"><button id="btn-3" value="3"></button></div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-4 vertical-line"><button id="btn-4" value="4"></button></div>
-            <div class="col-4 vertical-line"><button id="btn-5" value="5"></button></div>
-            <div class="col-4 vertical-line"><button id="btn-6" value="6"></button></div>
+        <div class="row" id="1">
+            <div class="col-4 vertical-line">
+                <button id="btn-3" value="0"></button>
+            </div>
+            <div class="col-4 vertical-line"><button id="btn-4" value="1"></button></div>
+            <div class="col-4 vertical-line"><button id="btn-5" value="2"></button></div>
         </div>
         <hr>
         
-        <div class="row">
-            <div class="col-4 vertical-line"><button id="btn-7" value="7"></button></div>
-            <div class="col-4 vertical-line"><button id="btn-8" value="8"></button></div>
-            <div class="col-4 vertical-line"><button id="btn-9" value="9"></button></div>
+        <div class="row" id="2">
+            <div class="col-4 vertical-line"><button id="btn-6" value="0"></button></div>
+            <div class="col-4 vertical-line"><button id="btn-7" value="1"></button></div>
+            <div class="col-4 vertical-line"><button id="btn-8" value="2"></button></div>
         </div>
         
-        <div class="row">
-            <p>The Current player is <strong id="player">X</strong></p>
-        </div>
-        
+        <ul  id="turnTracker">
+            <!-- <p>The Current player is <strong id="player">O</strong></p> -->
+        </ul>   
     </div>
+   
+    
 </body>
 <script src="ttt.js"></script>
-<script>
-    let currentValue = 'X'
-    let firstPlayerPosition = []
-    let secondPlayerPosition = []
-    let Anyplayer = document.getElementById("player")
-    
-    window.addEventListener("click", (e) => {
-        // console.log(e)
-        /* e.path[0].localName == "button" are u pressing a button and(e.target.innerText)is the button empty,
-        so if it is empty perform this play() function */     
-        if (e.path[0].localName == "button" && e.target.innerText == '' ){
-            /* console.log(e.path[0].id)
-            console.log(e.target.value, e.target.id) */
-            play(e)
-        }
-    })
-/* i created the function so that it can stand alone
-i put e so to have then the event listener in the function */
-
-    function play(e){
-        //if the current player is X then the next one should be zero
-        if ( currentValue === 'X' ) {
-            //then the next one should be zero
-            e.target.innerText = 'O'
-            currentValue = 'O'
-            firstPlayerPosition.push(e.target.value)
-            console.log("FIRST PLAYER ", firstPlayerPosition)
-        }
-        else {
-            e.target.innerText = 'X'
-            currentValue = 'X'
-            secondPlayerPosition.push(e.target.value)
-            console.log("SECOND PLAYER ", secondPlayerPosition)
-
-        }
-        Anyplayer.innerText =currentValue
-    }
-   /*  <div class="row">
-            <p>The Current player is <strong>X</strong></p>
-        </div> */
-    
-</script>
 </html>
